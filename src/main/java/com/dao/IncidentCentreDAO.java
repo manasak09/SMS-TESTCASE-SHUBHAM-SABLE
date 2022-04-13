@@ -1,8 +1,8 @@
 package com.dao;
 
 import org.springframework.stereotype.Repository;
-import java.util.*;
-import com.model.*;
+import java.util.List;
+import com.model.IncidentCentre;
 
 
 @Repository
