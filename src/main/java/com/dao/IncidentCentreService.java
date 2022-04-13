@@ -2,8 +2,8 @@ package com.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.model.*;
-import java.util.*;
+import com.model.IncidentCentre;
+import java.util.List;
 
 @Service
 public class IncidentCentreService {
