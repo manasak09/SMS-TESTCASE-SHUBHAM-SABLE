@@ -48,7 +48,7 @@ public class IncidentCentreDAOImpl implements IncidentCentreDAO {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
 		session.getTransaction().begin();
-		session.update(session);
+		session.update(centre);
 		session.flush();
 		session.getTransaction().commit();
 		session.close();
@@ -59,8 +59,9 @@ public class IncidentCentreDAOImpl implements IncidentCentreDAO {
 	public boolean deleteIncident(int id) {
 		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
+		IncidentCentre centre=session.find(IncidentCentre.class, id);
 		session.getTransaction().begin();
-		session.update(session);
+		session.update(centre);
 		session.flush();
 		session.getTransaction().commit();
 		session.close();
