@@ -1,7 +1,5 @@
 package com.project.SafetyManagementSystem;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -9,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.dao.IncidentCentreService;
-import com.model.*;
+import com.model.IncidentCentre;
 
 
-import junit.framework.Assert;
+import org.junit.Assert;
 @SpringBootTest
 class IncidentCentreTest {
 	@Autowired
@@ -60,34 +58,33 @@ class IncidentCentreTest {
 		service.addIncident(centre);
 		
 		IncidentCentre centre1=new IncidentCentre();
-		centre.setJobDescription("Bake");
-		centre.setIncidentName("Toothache");
-		centre.setAnyInjuries("No");
-		centre.setInjuryDescription("Tooth Pain");
+		centre1.setJobDescription("Bake");
+		centre1.setIncidentName("Toothache");
+		centre1.setAnyInjuries("No");
+		centre1.setInjuryDescription("Tooth Pain");
 		service.addIncident(centre1);
 		
 		IncidentCentre centre2=new IncidentCentre();
-		centre.setJobDescription("Coder");
-		centre.setIncidentName("Leg pain");
-		centre.setAnyInjuries("Yes");
-		centre.setInjuryDescription("Fracture");
+		centre2.setJobDescription("Coder");
+		centre2.setIncidentName("Leg Pain");
+		centre2.setAnyInjuries("Yes");
+		centre2.setInjuryDescription("Fracture");
 		service.addIncident(centre2);
 		
 		List<IncidentCentre> centrelist=service.findAllCentre();
 		centrelist.get(0).getIncidentName();
 		Assert.assertEquals(centrelist.get(0).getIncidentName(), "Impact");
-		Assert.assertEquals(centrelist.get(1).getIncidentName(), "Headache");
-		Assert.assertEquals(centrelist.get(2).getIncidentName(), "Toothache");
-		Assert.assertEquals(centrelist.get(3).getIncidentName(), "Leg Pain");
+		Assert.assertEquals(centrelist.get(1).getIncidentName(), "Neck Pain");
+		Assert.assertEquals(centrelist.get(2).getIncidentName(), "Headache");
+		Assert.assertEquals(centrelist.get(3).getIncidentName(), "Toothache");
 	}
-
 	@Test
 	void testUpdateCentre() {
 		IncidentCentre centre1=new IncidentCentre();
 		centre1.setJobDescription("Analyst");
-		centre1.setIncidentName("Head Injury");
+		centre1.setIncidentName("Neck Pain");
 		centre1.setAnyInjuries("Yes");
-		centre1.setInjuryDescription("Impact on Head");
+		centre1.setInjuryDescription("Scretches");
 		service.addIncident(centre1);
 		centre1.setAnyInjuries("No");
 		service.updateCentre(centre1);
@@ -96,10 +93,10 @@ class IncidentCentreTest {
 
 	@Test
 	void testDeleteCentre() {
-		service.deleteCentre(2);
-		IncidentCentre centre=service.findCentre(2);
-		Assert.assertNull(centre);
-		
+		service.deleteCentre(3);
+	IncidentCentre centre=	service.findCentre(2);
+	Assert.assertNull(centre);
 	}
+	
 
 }
