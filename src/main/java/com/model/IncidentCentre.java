@@ -1,6 +1,8 @@
 package com.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -9,19 +11,19 @@ public class IncidentCentre {
 	
 	@Id
 	@GeneratedValue
-	
+	@NotNull
 	private int incidentId;
 	
-	@NotNull
+	
     @Size(min=1,max=100)
 	private String jobDescription;
 	
-	
+	@NotNull
     @Size(min=1,max=100)
 	private String incidentName;
 	
 	
-    @Size(min=3,max=4)
+    @Size(min=2,max=3)
 	private String anyInjuries;
 	
 	
@@ -73,8 +75,5 @@ public class IncidentCentre {
 		this.injuryDescription = injuryDescription;
 	}
 
-	
-	
-	
-	
+
 }
